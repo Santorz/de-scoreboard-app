@@ -4,10 +4,11 @@
     <head>
         <title>De Scoreboard App</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
@@ -18,15 +19,16 @@
             <ul>
                 <li><a href="#">Resources</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Buy me Coffee</a></li>
+                <li><a href="#">Buy me <span class="fa fa-coffee"></span></a></li>
             </ul>
+            <span class="fa fa-navicon" id="mobile-nav-hamburger"></span>
         </div>
 
         <div id = "app-body">
             
             <div class="app-body-section app-body-section-1">
                 <p> This app keeps record of scores/wins in a game of you and your friends.</p>
-                <p> Ranging from 'Tic-Tac-Toe' to 'Rock-Paper-Scisiors', It's got you.</p>
+                <p> Ranging from 'Tic-Tac-Toe' to 'Rock-Paper-Scissors', It's got you.</p>
                 <p> Have lots of fun !!! </p>
             </div>
 
@@ -35,17 +37,23 @@
             </div>
 
             <div class="app-body-section app-body-section-3">
-            <p id="playLimitText">Score Record Entry Limit : <span> 5 </span></p>
+            <p id="playLimitText">Max Score Per Player : <span> 5 </span></p>
             </div>
 
             <div class="app-body-section app-body-section-4">
-            <input type="number" id="numInput">
+                
+                <div class="player-control-section">
+                    <p>Increment Scores </p>
+                    <button id="p1" class="player-button">Player 1</button>
+                    
+                    <button id="p2" class="player-button">Player 2</button>
+                </div>
+                <div class="score-control-section">
+                    <input type="number" placeholder="Set Max Score..." id="numInput">
+                    
+                    <button id="reset">Reset Scores</button>
+                </div>
 
-            <button id="p1">Player 1</button>
-
-            <button id="p2">Player 2</button>
-
-            <button id="reset">Reset</button>
             </div>
         
         </div>
