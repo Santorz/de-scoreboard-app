@@ -94,7 +94,7 @@ body {
     font-weight: bold;
 }
 
-#navbar ul{
+#desktop-navbar{
     display: inline-block;
     position: relative;
     margin-bottom: .7rem;
@@ -106,14 +106,14 @@ body {
     display: none;
 }
 
-#navbar li{
+.desktop-navbar-li{
     display: inline-block;
     text-decoration: none;
     list-style-type: none;
     margin: .4rem;
 }
 
-#navbar a{
+.desktop-navbar-a{
     font-size: 110%;
     text-decoration: none;
     color: black;
@@ -123,7 +123,7 @@ body {
     border-radius: .3rem;
 }
 
-#navbar a:hover{
+.desktop-navbar-a:hover{
     color: rgb(216, 203, 143);
     background-color: black;
     box-shadow: 0 0 .1rem .1rem rgba(41, 41, 41, 0.7);
@@ -297,11 +297,11 @@ body {
 
     #logotext{
         left: 7vw;
-        font-size: 6vw;
+        font-size: 6.3vw;
         display: inline-block;
     }
 
-    #navbar ul{
+    #desktop-navbar{
         display: none;
     }
 
@@ -309,8 +309,40 @@ body {
         display: inline-block;
         position: relative;
         left: 40%;
-        font-size: 5.5vw;
+        font-size: 7vw;
         color: rgb(0, 0, 122);
+    }
+
+    #mobile-navbar{
+        display: none;
+        position: absolute;
+        width: 30vw;
+        left: -16vw;
+        background-color: black;
+        border-radius: .3rem;
+        box-shadow: 0 0 .3rem .15rem rgba(0, 0, 0, 0.99);
+        padding-bottom: 3vw;
+    }
+
+    .mobile-navabr-li{
+        position: relative;
+        text-align: center;
+        display: block;
+        list-style: none;
+        width: 100%;
+    }
+
+    #mobile-navbar a{
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        font-size: 5vw;
+        text-decoration: none;
+        color: rgb(216, 203, 143);
+        font-family: sans-serif;
+        padding: 2vw;
+        transition: ease-in-out 3s;
+        border-bottom: .25vw solid rgb(216, 203, 143);
     }
 
     #app-body{
@@ -322,12 +354,13 @@ body {
 
     .app-body-section-1 p{
         padding: .25rem 2rem;
-        font-size: 3.3vw;
+        font-size: 4.1vw;
     }
     
     #p1Display, #p2Display{
         font-size: 27vw;
         padding: .5rem 1.2rem .5rem 2rem;
+        margin: -3.5vw;
     }
 
     .app-body-section-3{
@@ -336,7 +369,7 @@ body {
     }
 
     #playLimitText{
-        font-size: 3.5vw;
+        font-size: 3.75vw;
     }
 
     .app-body-section-3{

@@ -1,3 +1,6 @@
+var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
+var mobile_nav = document.getElementById("mobile-navbar")
+var app_body_section_1 = document.querySelector(".app-body-section-1");
 var p1Button = document.querySelector("#p1");
 var p2Button = document.getElementById("p2");
 var resetButton = document.getElementById("reset");
@@ -8,7 +11,23 @@ var playLimitNum = document.querySelector("#playLimitText span")
 var p1Score = 0;
 var p2Score = 0;
 var gameOver = false;
+var mobile_nav_clicked = false;
 var winningScore = 5;
+
+
+mobile_nav_activator.addEventListener("click", function(){
+    if (!mobile_nav_clicked){
+        mobile_nav.style.display = "block";
+        app_body_section_1.style.filter = "blur(0.5vw)";
+        mobile_nav_clicked = true;
+    }
+    else{
+        mobile_nav.style.display = "none";
+        app_body_section_1.style.filter = "none";
+        mobile_nav_clicked = false;
+    }
+
+})
 
 // Add Event Listener
 // for Player 1 button
