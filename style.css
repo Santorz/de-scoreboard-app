@@ -316,6 +316,7 @@ body {
     #mobile-navbar{
         display: none;
         position: absolute;
+        margin-top: 2vw;
         width: 30vw;
         left: -16vw;
         background-color: black;

@@ -1,5 +1,6 @@
 var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
-var mobile_nav = document.getElementById("mobile-navbar")
+var mobile_nav = document.getElementById("mobile-navbar");
+var document_body = document.querySelector("body");
 var app_body_section_1 = document.querySelector(".app-body-section-1");
 var p1Button = document.querySelector("#p1");
 var p2Button = document.getElementById("p2");
@@ -27,7 +28,8 @@ mobile_nav_activator.addEventListener("click", function(){
         mobile_nav_clicked = false;
     }
 
-})
+});
+
 
 // Add Event Listener
 // for Player 1 button
