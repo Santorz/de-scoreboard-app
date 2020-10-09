@@ -321,7 +321,7 @@ body {
         left: -16vw;
         background-color: black;
         border-radius: .3rem;
-        box-shadow: 0 0 .3rem .15rem rgba(0, 0, 0, 0.99);
+        box-shadow: 0 0 .1rem .1rem rgba(124, 124, 124, 0.99);
         padding-bottom: 3vw;
     }
 
@@ -359,9 +359,8 @@ body {
     }
     
     #p1Display, #p2Display{
-        font-size: 27vw;
-        padding: .5rem 1.2rem .5rem 2rem;
-        margin: -3.5vw;
+        font-size: 25vw;
+        padding: 2vw 4vw 2vw 7vw;
     }
 
     .app-body-section-3{
