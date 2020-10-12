@@ -1,3 +1,4 @@
+// Selecting Elements..
 var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
 var mobile_nav = document.getElementById("mobile-navbar");
 var document_body = document.querySelector("body");
@@ -27,7 +28,7 @@ mobile_nav_activator.addEventListener("click", function(){
         app_body_section_1.style.filter = "none";
         mobile_nav_clicked = false;
     }
-
+  
 });
 
 
@@ -74,9 +75,28 @@ function reset(){
 };
 
 // for Number Input field
-numInput.addEventListener("change", function(){
+numInput.addEventListener("change", function(){  
     playLimitNum.textContent = this.value;
     winningScore = Number(this.value);
     reset();
 });
 
+// Add event listener if enter is pressed on input field
+//numInput.addEventListener('keyup', function{
+    
+//})
+
+numInput.oninput = function(){
+    var max = parseInt(this.max);
+    var min = parseInt(this.min);
+
+    if(parseInt(this.value) > max){
+        gameOver = true;
+        this.value = max;
+    }
+    else if(parseInt(this.value) < min){
+        gameOver = true;
+        this.value = min;
+    }
+
+}
