@@ -14,13 +14,14 @@ var p1Score = 0;
 var p2Score = 0;
 var gameOver = false;
 var mobile_nav_clicked = false;
-var winningScore = 5;
+var winningScore = numInput.value;
+
 
 
 mobile_nav_activator.addEventListener("click", function(){
     if (!mobile_nav_clicked){
         mobile_nav.style.display = "block";
-        app_body_section_1.style.filter = "blur(0.5vw)";
+        app_body_section_1.style.filter = "blur(0.55vw)";
         mobile_nav_clicked = true;
     }
     else{
@@ -31,10 +32,53 @@ mobile_nav_activator.addEventListener("click", function(){
   
 });
 
+// Function that contains all properties to hinder gameplay
+function gameNotStarted(){
+    p1Score,p2Score = 0;
+    gameOver = true;
+    playLimitNum.textContent = "Not set";
+    numInput.value = '' ;
+}
+
+// Give it a not-started state if max score hasn't been set
+if (numInput.value === ""){
+    gameNotStarted();
+}
+else{
+    // Do nothing bruh...
+}
+
+
+
+if (playLimitNum.textContent === "Not set"){
+    p1Button.classList.add("unclickable");
+    p2Button.classList.add("unclickable");
+}
+else{
+    // Hang on bruh..
+}
+
+
+/*function addtoScore(specificScore, specificDisplay){
+    if (!gameOver){
+        specificScore++;
+        if ( specificScore === winningScore){
+            specificDisplay.classList.add("winner");
+            gameOver = true;
+        }
+        specificDisplay.textContent = specificScore;
+    }
+}*/
+
+
 
 // Add Event Listener
 // for Player 1 button
-p1Button.addEventListener("click",function(){
+/* p1Button.addEventListener("click", addtoScore(p1Score, p1Display));
+p2Button.addEventListener("click", addtoScore(p2Score, p2Display));
+*/
+
+p1Button.addEventListener("click",function (){
     if (!gameOver){
         p1Score++;
         if ( p1Score === winningScore){
@@ -46,8 +90,8 @@ p1Button.addEventListener("click",function(){
     
 });
 
-// for Player 1 button
-p2Button.addEventListener("click",function(){
+// for Player 2 button
+p2Button.addEventListener("click",function (){
     if (!gameOver){
         p2Score++;
         if ( p2Score === winningScore){
@@ -59,43 +103,51 @@ p2Button.addEventListener("click",function(){
     
 });
 
+
+
 // for Reset button
 resetButton.addEventListener("click", function(){
     reset();
+    if (numInput.value === ""){
+        gameNotStarted();
+    }
 });
 
 function reset(){
+    p1Button.classList.add("unclickable");
+    p2Button.classList.add("unclickable");
     p1Score = 0;
     p2Score = 0;
     p1Display.textContent = 0;
     p2Display.textContent = 0;
     p1Display.classList.remove("winner");
     p2Display.classList.remove("winner");
-    gameOver = false;
+    gameOver = true;
+    numInput.value = "";
 };
 
 // for Number Input field
-numInput.addEventListener("change", function(){  
-    playLimitNum.textContent = this.value;
-    winningScore = Number(this.value);
+numInput.addEventListener("change", function(){
+
+    var int_input = (parseInt(this.value)) ;
+    playLimitNum.textContent = int_input;
+    winningScore = Number(int_input);
     reset();
+    gameOver = false;
+    p1Button.classList.remove("unclickable");
+    p2Button.classList.remove("unclickable");
+    
 });
 
-// Add event listener if enter is pressed on input field
-//numInput.addEventListener('keyup', function{
-    
-//})
 
 numInput.oninput = function(){
     var max = parseInt(this.max);
     var min = parseInt(this.min);
 
     if(parseInt(this.value) > max){
-        gameOver = true;
         this.value = max;
     }
     else if(parseInt(this.value) < min){
-        gameOver = true;
         this.value = min;
     }
 
