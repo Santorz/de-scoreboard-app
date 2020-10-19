@@ -3,13 +3,14 @@ var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
 var mobile_nav = document.getElementById("mobile-navbar");
 var document_body = document.querySelector("body");
 var app_body_section_1 = document.querySelector(".app-body-section-1");
-var p1Button = document.querySelector("#p1");
+var p1Button = document.getElementById("p1");
 var p2Button = document.getElementById("p2");
 var resetButton = document.getElementById("reset");
 var p1Display = document.querySelector("#p1Display");
 var p2Display = document.querySelector("#p2Display");
 var numInput = document.querySelector("#numInput");
-var playLimitNum = document.querySelector("#playLimitText span")
+var playLimitNum = document.querySelector("#playLimitText span");
+var numInputErrorText = document.getElementById("numInput-error-text");
 var p1Score = 0;
 var p2Score = 0;
 var gameOver = false;
@@ -18,7 +19,7 @@ var winningScore = numInput.value;
 
 
 
-mobile_nav_activator.addEventListener("click", function(){
+mobile_nav_activator.onclick = function(){
     if (!mobile_nav_clicked){
         mobile_nav.style.display = "block";
         app_body_section_1.style.filter = "blur(0.55vw)";
@@ -30,7 +31,12 @@ mobile_nav_activator.addEventListener("click", function(){
         mobile_nav_clicked = false;
     }
   
-});
+};
+
+// Function to add display:block to element
+function addBlockDisplay(element){
+    element.classList.add("displayBlock")
+}
 
 // Function that contains all properties to hinder gameplay
 function gameNotStarted(){
@@ -39,6 +45,20 @@ function gameNotStarted(){
     playLimitNum.textContent = "Not set";
     numInput.value = '' ;
 }
+
+// Function to reset scores
+function reset(){
+    p1Button.classList.add("unclickable");
+    p2Button.classList.add("unclickable");
+    p1Score = 0;
+    p2Score = 0;
+    p1Display.textContent = 0;
+    p2Display.textContent = 0;
+    p1Display.classList.remove("winner");
+    p2Display.classList.remove("winner");
+    gameOver = true;
+    numInput.value = "";
+};
 
 // Give it a not-started state if max score hasn't been set
 if (numInput.value === ""){
@@ -59,25 +79,8 @@ else{
 }
 
 
-/*function addtoScore(specificScore, specificDisplay){
-    if (!gameOver){
-        specificScore++;
-        if ( specificScore === winningScore){
-            specificDisplay.classList.add("winner");
-            gameOver = true;
-        }
-        specificDisplay.textContent = specificScore;
-    }
-}*/
-
-
-
 // Add Event Listener
 // for Player 1 button
-/* p1Button.addEventListener("click", addtoScore(p1Score, p1Display));
-p2Button.addEventListener("click", addtoScore(p2Score, p2Display));
-*/
-
 p1Button.addEventListener("click",function (){
     if (!gameOver){
         p1Score++;
@@ -113,19 +116,6 @@ resetButton.addEventListener("click", function(){
     }
 });
 
-function reset(){
-    p1Button.classList.add("unclickable");
-    p2Button.classList.add("unclickable");
-    p1Score = 0;
-    p2Score = 0;
-    p1Display.textContent = 0;
-    p2Display.textContent = 0;
-    p1Display.classList.remove("winner");
-    p2Display.classList.remove("winner");
-    gameOver = true;
-    numInput.value = "";
-};
-
 // for Number Input field
 numInput.addEventListener("change", function(){
 
@@ -145,10 +135,12 @@ numInput.oninput = function(){
     var min = parseInt(this.min);
 
     if(parseInt(this.value) > max){
-        this.value = max;
+        this.value = "";
+        addBlockDisplay(numInputErrorText);
     }
     else if(parseInt(this.value) < min){
-        this.value = min;
+        this.value = "";
+        addBlockDisplay(numInputErrorText);
     }
 
 }
