@@ -9,6 +9,7 @@ var resetButton = document.getElementById("reset");
 var p1Display = document.querySelector("#p1Display");
 var p2Display = document.querySelector("#p2Display");
 var numInput = document.querySelector("#numInput");
+var numInputArrow = document.querySelector('.numInputArrow')
 var playLimitNum = document.querySelector("#playLimitText span");
 var numInputErrorText = document.getElementById("numInput-error-text");
 var p1Score = 0;
@@ -44,7 +45,34 @@ function gameNotStarted(){
     gameOver = true;
     playLimitNum.textContent = "Not set";
     numInput.value = '' ;
+    p1Button.classList.add("unclickable");
+    p2Button.classList.add("unclickable");
 }
+
+function takeInput(){
+    var max = parseInt(numInput.max);
+    var min = parseInt(numInput.min);
+
+    if(parseInt(numInput.value) > max){
+        numInput.value = "";
+        addBlockDisplay(numInputErrorText);
+        gameNotStarted();
+    }
+    else if(parseInt(numInput.value) < min){
+        numInput.value = "";
+        addBlockDisplay(numInputErrorText);
+        gameNotStarted();
+    }
+    else{
+        var int_input = (parseInt(numInput.value)) ;
+        playLimitNum.textContent = int_input;
+        winningScore = Number(int_input);
+        reset();
+        gameOver = false;
+        p1Button.classList.remove("unclickable");
+        p2Button.classList.remove("unclickable");
+    }
+ }
 
 // Function to reset scores
 function reset(){
@@ -116,31 +144,15 @@ resetButton.addEventListener("click", function(){
     }
 });
 
-// for Number Input field
-numInput.addEventListener("change", function(){
 
-    var int_input = (parseInt(this.value)) ;
-    playLimitNum.textContent = int_input;
-    winningScore = Number(int_input);
-    reset();
-    gameOver = false;
-    p1Button.classList.remove("unclickable");
-    p2Button.classList.remove("unclickable");
-    
+// for Number Input field
+numInput.addEventListener("keypress", function(e){
+    if (e.key === 'Enter'){
+        takeInput();
+    }
+
 });
 
-
-numInput.oninput = function(){
-    var max = parseInt(this.max);
-    var min = parseInt(this.min);
-
-    if(parseInt(this.value) > max){
-        this.value = "";
-        addBlockDisplay(numInputErrorText);
-    }
-    else if(parseInt(this.value) < min){
-        this.value = "";
-        addBlockDisplay(numInputErrorText);
-    }
-
-}
+numInputArrow.addEventListener('click', function(){
+    takeInput();
+})

@@ -258,6 +258,7 @@ body {
 
 .score-control-section{
     position: relative;
+    padding-bottom: 2rem;
 }
 
 input::-webkit-outer-spin-button{
@@ -275,7 +276,7 @@ input::-webkit-inner-spin-button{
 
 input[type=number]{
     appearance: none;
-    -moz-appearance: none;
+    -moz-appearance: textfield;
 }
 
 #numInput{
@@ -303,6 +304,13 @@ input[type=number]{
     font-style: italic;
 }
 
+.numInputArrow{
+    position: absolute;
+    cursor: pointer;
+    margin-top: 1.13%;
+    margin-left: -4.5%;
+}
+
 #numInput-error-text{
     position: absolute;
     display: none;
@@ -312,6 +320,7 @@ input[type=number]{
     width: 15%;
     margin-left: 32% ;
     font-weight: bold;
+    
 }
 
 #reset{
@@ -459,6 +468,11 @@ input[type=number]{
 
     #numInput::placeholder{
         font-size: 3.2vw;
+    }
+
+    .numInputArrow{
+        margin-left: -10.3vw;
+        margin-top: 2.5vw;
     }
 
     #numInput-error-text{
