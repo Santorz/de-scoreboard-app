@@ -20,6 +20,7 @@ var winningScore = numInput.value;
 
 
 
+
 mobile_nav_activator.onclick = function(){
     if (!mobile_nav_clicked){
         mobile_nav.style.display = "block";
@@ -34,10 +35,38 @@ mobile_nav_activator.onclick = function(){
   
 };
 
+
 // Function to add display:block to element
 function addBlockDisplay(element){
     element.classList.add("displayBlock")
 }
+
+
+
+/*
+// Function to hide element on outside click
+function hideElementOnOutsideClick(element){
+    window.onload = function(){
+        document.onclick = function(e){
+           if(e.target.id !== element.id){
+              element.classList.remove('displayBlock');
+           }
+        };
+     };
+}
+
+
+// Function that decides if it hides num input error text
+function hideNumInputErrorText(){
+    if (numInputErrorText.classList.contains('displayBlock')){
+        hideElementOnOutsideClick(numInputErrorText);
+    }
+}
+
+hideNumInputErrorText();
+*/
+
+
 
 // Function that contains all properties to hinder gameplay
 function gameNotStarted(){
@@ -72,6 +101,7 @@ function takeInput(){
         p1Button.classList.remove("unclickable");
         p2Button.classList.remove("unclickable");
     }
+
  }
 
 // Function to reset scores
@@ -95,7 +125,6 @@ if (numInput.value === ""){
 else{
     // Do nothing bruh...
 }
-
 
 
 if (playLimitNum.textContent === "Not set"){
@@ -156,3 +185,16 @@ numInput.addEventListener("keypress", function(e){
 numInputArrow.addEventListener('click', function(){
     takeInput();
 })
+
+// Hide numInputErrorText when clicked outside of it
+window.onload = function(){
+    document.onclick = function(e){
+        if(numInputErrorText.classList.contains('displayBlock')){
+            if(e.target.id !== 'numInputErrorText'){
+                numInputErrorText.classList.remove('displayBlock');
+             }
+        }
+    };
+ };
+
+ 
