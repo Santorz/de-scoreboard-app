@@ -5,11 +5,11 @@ var document_body = document.querySelector("body");
 var app_body_section_1 = document.querySelector(".app-body-section-1");
 var p1Button = document.getElementById("p1");
 var p2Button = document.getElementById("p2");
-var resetButton = document.getElementById("reset");
+var resetScoresButton = document.getElementById("reset");
 var p1Display = document.querySelector("#p1Display");
 var p2Display = document.querySelector("#p2Display");
 var numInput = document.querySelector("#numInput");
-var numInputArrow = document.querySelector('.numInputArrow')
+var numInputArrow = document.querySelector('#numInputArrow')
 var playLimitNum = document.querySelector("#playLimitText span");
 var numInputErrorText = document.getElementById("numInput-error-text");
 var p1Score = 0;
@@ -41,32 +41,15 @@ function addBlockDisplay(element){
     element.classList.add("displayBlock")
 }
 
-
-
-/*
-// Function to hide element on outside click
-function hideElementOnOutsideClick(element){
-    window.onload = function(){
-        document.onclick = function(e){
-           if(e.target.id !== element.id){
-              element.classList.remove('displayBlock');
-           }
-        };
-     };
-}
-
-
-// Function that decides if it hides num input error text
-function hideNumInputErrorText(){
-    if (numInputErrorText.classList.contains('displayBlock')){
-        hideElementOnOutsideClick(numInputErrorText);
+// When the user clicks anywhere outside of an ..
+// element having the displayBlock property, close it
+function hideElement(element) {
+    window.onclick = function(event) {
+        if (event.target !== element) {
+            element.classList.remove('displayBlock')
+        }
     }
 }
-
-hideNumInputErrorText();
-*/
-
-
 
 // Function that contains all properties to hinder gameplay
 function gameNotStarted(){
@@ -96,7 +79,7 @@ function takeInput(){
         var int_input = (parseInt(numInput.value)) ;
         playLimitNum.textContent = int_input;
         winningScore = Number(int_input);
-        reset();
+        resetScores();
         gameOver = false;
         p1Button.classList.remove("unclickable");
         p2Button.classList.remove("unclickable");
@@ -104,8 +87,8 @@ function takeInput(){
 
  }
 
-// Function to reset scores
-function reset(){
+// Function to resetScores scores
+function resetScores(){
     p1Button.classList.add("unclickable");
     p2Button.classList.add("unclickable");
     p1Score = 0;
@@ -165,9 +148,9 @@ p2Button.addEventListener("click",function (){
 
 
 
-// for Reset button
-resetButton.addEventListener("click", function(){
-    reset();
+// for resetScores button
+resetScoresButton.addEventListener("click", function(){
+    resetScores();
     if (numInput.value === ""){
         gameNotStarted();
     }
@@ -178,23 +161,16 @@ resetButton.addEventListener("click", function(){
 numInput.addEventListener("keypress", function(e){
     if (e.key === 'Enter'){
         takeInput();
+        hideElement(numInputErrorText);
     }
 
 });
 
-numInputArrow.addEventListener('click', function(){
-    takeInput();
-})
-
-// Hide numInputErrorText when clicked outside of it
-window.onload = function(){
-    document.onclick = function(e){
-        if(numInputErrorText.classList.contains('displayBlock')){
-            if(e.target.id !== 'numInputErrorText'){
-                numInputErrorText.classList.remove('displayBlock');
-             }
-        }
-    };
- };
-
- 
+numInputArrow.onclick = function(){
+        takeInput();
+        window.onclick = function(e){
+            if (e.target !== numInputErrorText){
+                hideElement(numInputErrorText);
+            }
+        }        
+};
