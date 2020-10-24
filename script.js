@@ -18,22 +18,9 @@ var gameOver = false;
 var mobile_nav_clicked = false;
 var winningScore = numInput.value;
 
-
-
-
-mobile_nav_activator.onclick = function(){
-    if (!mobile_nav_clicked){
-        mobile_nav.style.display = "block";
-        app_body_section_1.style.filter = "blur(0.55vw)";
-        mobile_nav_clicked = true;
-    }
-    else{
-        mobile_nav.style.display = "none";
-        app_body_section_1.style.filter = "none";
-        mobile_nav_clicked = false;
-    }
-  
-};
+// ----------------------------------------
+//          ***** FUNCTIONS ******
+// ----------------------------------------
 
 
 // Function to add display:block to element
@@ -61,17 +48,22 @@ function gameNotStarted(){
     p2Button.classList.add("unclickable");
 }
 
+// Function to take input from numInput Box
 function takeInput(){
     var max = parseInt(numInput.max);
     var min = parseInt(numInput.min);
 
     if(parseInt(numInput.value) > max){
         numInput.value = "";
+        numInput.classList.add('numInput-on-error-state');
+        remove_border_error_color();
         addBlockDisplay(numInputErrorText);
         gameNotStarted();
     }
     else if(parseInt(numInput.value) < min){
         numInput.value = "";
+        numInput.classList.add('numInput-on-error-state');
+        remove_border_error_color();
         addBlockDisplay(numInputErrorText);
         gameNotStarted();
     }
@@ -87,6 +79,16 @@ function takeInput(){
 
  }
 
+ // Function to remove numInput's border's warning color 
+// This happens when user clicks outside of it when it's been shown 
+function remove_border_error_color(){
+    document.onclick = function(event){
+            if (event.target !== numInput){
+                numInput.classList.remove('numInput-on-error-state');
+            }
+        }
+    }
+
 // Function to resetScores scores
 function resetScores(){
     p1Button.classList.add("unclickable");
@@ -101,7 +103,31 @@ function resetScores(){
     numInput.value = "";
 };
 
-// Give it a not-started state if max score hasn't been set
+
+
+// Control mobile nav 
+mobile_nav_activator.onclick = function(){
+    if (!mobile_nav_clicked){
+        mobile_nav.classList.add('displayBlock');
+        app_body_section_1.classList.add('blur');
+        mobile_nav_clicked = true;
+    }
+    else{
+        mobile_nav.classList.remove('displayBlock');
+        app_body_section_1.classList.remove('blur');
+        mobile_nav_clicked = false;
+    }
+    window.onclick = function(e){
+        if (e.target !== mobile_nav && e.target !== mobile_nav_activator){
+            mobile_nav.classList.remove('displayBlock');
+            app_body_section_1.classList.remove('blur');
+            mobile_nav_clicked = false;
+        }
+    }
+};
+
+
+// Give app a not-started state if max score hasn't been set
 if (numInput.value === ""){
     gameNotStarted();
 }
@@ -109,7 +135,7 @@ else{
     // Do nothing bruh...
 }
 
-
+// Make buttons unclickable if user game isn't started 
 if (playLimitNum.textContent === "Not set"){
     p1Button.classList.add("unclickable");
     p2Button.classList.add("unclickable");
@@ -119,7 +145,8 @@ else{
 }
 
 
-// Add Event Listener
+// Add Event Listeners ....{
+
 // for Player 1 button
 p1Button.addEventListener("click",function (){
     if (!gameOver){
@@ -166,11 +193,12 @@ numInput.addEventListener("keypress", function(e){
 
 });
 
+// For arrow in numInput box
 numInputArrow.onclick = function(){
         takeInput();
         window.onclick = function(e){
             if (e.target !== numInputErrorText){
                 hideElement(numInputErrorText);
             }
-        }        
+        }
 };
