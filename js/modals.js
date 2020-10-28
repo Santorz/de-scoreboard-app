@@ -48,11 +48,11 @@ function openAndCloseModalAnyhow(specific_link, specific_modal){
         }
       }
 
-    window.onclick = function(event){
-      if (event.target === specific_modal){
-        hideModal(specific_modal)
+      document.onclick = function(event){
+        if (event.target === specific_modal){
+          hideModal(specific_modal)
+        }
       }
-    }
     }
   }
 }

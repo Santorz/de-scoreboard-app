@@ -78,5 +78,9 @@
   .Modal-content{
       width: 95vw;
   }
+
+  .modal-header{
+    font-size: 5vw;
+  }
   
 }
