@@ -2,6 +2,7 @@
 var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
 var mobile_nav = document.getElementById("mobile-navbar");
 var document_body = document.querySelector("body");
+var app_container = document.querySelector('#app-body')
 var app_body_section_1 = document.querySelector(".app-body-section-1");
 var p1Button = document.getElementById("p1");
 var p2Button = document.getElementById("p2");
@@ -48,24 +49,25 @@ function gameNotStarted(){
     p2Button.classList.add("unclickable");
 }
 
+// Function to hinder input capture
+function hinderInputCapture() {
+    numInput.value = "";
+    numInput.classList.add('numInput-on-error-state');
+    remove_border_error_color();
+    addBlockDisplay(numInputErrorText);
+    gameNotStarted();
+}
+
 // Function to take input from numInput Box
 function takeInput(){
-    var max = parseInt(numInput.max);
-    var min = parseInt(numInput.min);
+    var max = (numInput.max);
+    var min = (numInput.min);
 
     if(parseInt(numInput.value) > max){
-        numInput.value = "";
-        numInput.classList.add('numInput-on-error-state');
-        remove_border_error_color();
-        addBlockDisplay(numInputErrorText);
-        gameNotStarted();
+        hinderInputCapture();
     }
     else if(parseInt(numInput.value) < min){
-        numInput.value = "";
-        numInput.classList.add('numInput-on-error-state');
-        remove_border_error_color();
-        addBlockDisplay(numInputErrorText);
-        gameNotStarted();
+        hinderInputCapture();
     }
     else{
         var int_input = (parseInt(numInput.value)) ;
@@ -77,13 +79,13 @@ function takeInput(){
         p2Button.classList.remove("unclickable");
     }
 
- }
+}
 
- // Function to remove numInput's border's warning color 
+// Function to remove numInput's border's warning color 
 // This happens when user clicks outside of it when it's been shown 
 function remove_border_error_color(){
     document.onclick = function(event){
-            if (event.target !== numInput){
+            if (event.target !== numInputArrow){
                 numInput.classList.remove('numInput-on-error-state');
             }
         }
@@ -173,8 +175,6 @@ p2Button.addEventListener("click",function (){
     
 });
 
-
-
 // for resetScores button
 resetScoresButton.addEventListener("click", function(){
     resetScores();
@@ -184,21 +184,46 @@ resetScoresButton.addEventListener("click", function(){
 });
 
 
-// for Number Input field
+// for hitting Enter key in Number Input field
 numInput.addEventListener("keypress", function(e){
     if (e.key === 'Enter'){
-        takeInput();
-        hideElement(numInputErrorText);
+        if (Number.isInteger(Number(numInput.value))) {
+            hideElement(numInputErrorText);
+            takeInput();
+        }
+        else{
+            hinderInputCapture();
+           }
     }
-
+    
 });
 
-// For arrow in numInput box
+window.onclick = function(e){
+    if (e.target !== numInputErrorText){
+     hideElement(numInputErrorText);
+    }
+    else {
+     // nothing bruh
+    }
+}
+
+// ...................................................
+
+
+// For click in arrow in numInput field
 numInputArrow.onclick = function(){
+    if (Number.isInteger(Number(numInput.value))) {
         takeInput();
-        window.onclick = function(e){
-            if (e.target !== numInputErrorText){
-                hideElement(numInputErrorText);
-            }
+    }
+    else{
+        hinderInputCapture();
+    }
+    window.onclick = function(e){
+        if (e.target !== numInputErrorText){
+            hideElement(numInputErrorText);
         }
-};
+        else {
+            // nothing bruh
+        }
+    }
+}

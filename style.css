@@ -337,6 +337,7 @@ input[type=number]{
     width: 15%;
     margin-left: 32% ;
     font-weight: bold;
+    line-height: 130%;
 }
 
 #reset{

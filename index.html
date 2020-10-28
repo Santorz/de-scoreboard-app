@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <title>De Scoreboard App</title>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/modals-1.css">
         <link rel="stylesheet" type="text/css" href="css/keyframes.css">
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
@@ -19,32 +19,60 @@
             <h1 id="logotext"> De Scoreboard</h1>
             <ul id="desktop-navbar">
                 <li class="desktop-navbar-li">
-                    <a href="#" class="desktop-navbar-a">Resources</a>
+                    <a href="#" class="desktop-navbar-a resources-link">Resources</a>
                 </li>
                 <li class="desktop-navbar-li">
-                    <a href="#" class="desktop-navbar-a">About</a>
+                    <a href="#" class="desktop-navbar-a about-link">About</a>
                 </li>
                 <li class="desktop-navbar-li">
-                    <a href="#" class="desktop-navbar-a">Buy me <span class="fa fa-coffee"></span></a>
+                    <a href="#" class="desktop-navbar-a buy-me-coffee-link">Buy me <span class="fa fa-coffee"></span></a>
                 </li>
             </ul>
             <span class="fa fa-navicon" id="mobile-nav-hamburger">
                 <ul id="mobile-navbar">
                     <li class="mobile-navbar-li">
-                        <a>Resources</a>
+                        <a class="resources-link">Resources</a>
                     </li>
                     <li class="mobile-navbar-li">
-                        <a>About</a>
+                        <a class="about-link">About</a>
                     </li>
                     <li class="mobile-navbar-li">
-                        <a>Buy me <span class="fa fa-coffee"></span></a>
+                        <a class="buy-me-coffee-link">Buy me <span class="fa fa-coffee"></span></a>
                     </li>
                 </ul>
             </span>
         </div>
 
+          
+        <!--Modals-->
+        <div id="Resources-Modal" class="Modal is-hidden">
+            <!-- Modal content -->
+            <div class="Modal-content">
+              <span id="closeModal" class="modal-close-button fa fa-close"></span>
+              <h3 class="modal-header">Resources</h3>
+            </div>
+        </div>
+
+        <div id="About-Modal" class="is-hidden">
+            <!-- Modal content -->
+            <div class="Modal-content">
+              <span id="closeModal" class="modal-close-button fa fa-close"></span>
+              <h3 class="modal-header">About Us</h3>
+            </div>
+        </div>
+
+        <div id="Buy-Me-Coffee-Modal" class="Modal is-hidden">
+            <!-- Modal content -->
+            <div class="Modal-content">
+              <span id="closeModal" class="modal-close-button fa fa-close"></span>
+              <h3 class="modal-header">Buy Me Coffee (Donate)</h3>
+            </div>
+        </div>
+    
+        
+
         <div id = "app-body">
-            
+          
             <div class="app-body-section app-body-section-1">
                 <p> This app keeps record of scores/wins in a game of you and your friends.</p>
                 <p> Ranging from 'Tic-Tac-Toe' to 'Rock-Paper-Scissors', It's got you.</p>
@@ -71,13 +99,14 @@
                     <input type="number" placeholder="Set Max Score..." min="1" max="9" id="numInput"/>
                     <i class="fa fa-arrow-right" id="numInputArrow"></i>
                     <button id="reset">Reset Scores</button>
-                    <p id="numInput-error-text">Enter a Score from 1 to 9 </p>
+                    <p id="numInput-error-text">Enter a Number from 1 to 9 </p>
                 </div>
 
             </div>
         
         </div>
         <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="js/modals.js"></script>
     </body>
 
 </html> 
