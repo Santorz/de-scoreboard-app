@@ -1,7 +1,11 @@
 // IMPORTING PACKAGES
 
 import * as playerModalActions from './js/player-name-modals.js';
-playerModalActions.sayHi();
+playerModalActions.create_player1_modal();
+
+
+
+
 
 // Selecting Elements..
 var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
