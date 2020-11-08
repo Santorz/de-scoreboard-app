@@ -36,10 +36,7 @@ function openAndCloseModalAnyhow(specific_link, specific_modal){
 
     specific_link[i].onclick = function(){
       specific_modal.className = "is-hidden";
-      setTimeout(function() {
-        app_container.className = "is-blurred";
-        specific_modal.className = "Modal";
-      }, 70);
+      specific_modal.className = "Modal";
       app_container.parentElement.className = "ModalOpen";
 
       for (i = 0; i < close_button.length; i++){
@@ -65,19 +62,16 @@ function hideModal(modal){
 
 // Function to close modal only with close button
 function openandSecurelyCloseModal(specific_link, specific_modal){
-  for (i = 0; i < specific_link.length; i++){
+  for (let i = 0; i < specific_link.length; i++){
     specific_link[i].onclick = function(){
         specific_modal.className = "is-hidden";
-        setTimeout(function() {
-          app_container.className = "is-blurred";
-          specific_modal.className = "Modal";
-        }, 70);
+        specific_modal.className = "Modal";
         app_container.parentElement.className = "ModalOpen";
 
-        for (i = 0; i < close_button.length; i++){
-          close_button[i].onclick = function(){
-            hideModal(specific_modal);
-        }
+for (let i = 0; i < close_button.length; i++){
+  close_button[i].onclick = function(){
+    hideModal(specific_modal);
+}
       }
     }
   }

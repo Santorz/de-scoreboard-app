@@ -1,8 +1,11 @@
+let sayHi = require ('./js/player-name-modals.js');
+sayHi.default();
+
 // Selecting Elements..
 var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
 var mobile_nav = document.getElementById("mobile-navbar");
 var document_body = document.querySelector("body");
-var app_container = document.querySelector('#app-body')
+var app_container = document.querySelector('#app-body');
 var app_body_section_1 = document.querySelector(".app-body-section-1");
 var p1Button = document.getElementById("p1");
 var p2Button = document.getElementById("p2");

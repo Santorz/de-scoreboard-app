@@ -1,4 +1,5 @@
 @import url('fonts.css');
+@import url('keyframes.css');
 
 
 .Modal {
@@ -11,10 +12,13 @@
     height: 100%;
     padding-top: 100px;
     background-color: black;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.65);
     -webkit-transition: 0.5s;
     overflow: hidden;
     transition: all 0.3s linear;
+    backdrop-filter: blur(5px);  
+    -webkit-backdrop-filter: blur(5px);
+    animation: open-modal-popup .3s linear;
   }
   
   .Modal-content {
@@ -31,21 +35,21 @@
   
 
   
-  .ModalOpen { overflow: hidden; }
+  .ModalOpen { overflow: hidden !important; }
   
   .is-hidden { display: none; }
   
   .is-visuallyHidden { opacity: 0; }
 
   .modal-close-button {
-    color: #727272;
+    color: #4e4e4e;
     float: right;
     font-size: 24px !important;
     z-index: 2;
   }
   
   .modal-close-button:hover, .modal-close-button:focus {
-    color: rgb(0, 0, 0);
+    color: rgb(197, 0, 0);
     border-radius: 50%;
     text-decoration: none;
     cursor: pointer;
