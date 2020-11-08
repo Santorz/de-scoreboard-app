@@ -1,5 +1,7 @@
-let sayHi = require ('./js/player-name-modals.js');
-sayHi.default();
+// IMPORTING PACKAGES
+
+import * as playerModalActions from './js/player-name-modals.js';
+playerModalActions.sayHi();
 
 // Selecting Elements..
 var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
@@ -230,3 +232,6 @@ numInputArrow.onclick = function(){
         }
     }
 }
+
+
+

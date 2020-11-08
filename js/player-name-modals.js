@@ -2,4 +2,7 @@ function sayHi(){
     alert("Hi");
 }
 
-export default sayHi;
+
+export {
+    sayHi,
+};
