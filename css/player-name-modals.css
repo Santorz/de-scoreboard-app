@@ -1,6 +1,11 @@
 @import url('fonts.css');
+@import url('keyframes.css');
 
-.player-name-modal-background {
+/*  These styles are used to slide-out player name input modals*/
+
+
+
+.player-name-modal-background{
     display: block;
     position: fixed;
     left: 0;
@@ -16,10 +21,11 @@
     transition: all 0.3s linear;
     backdrop-filter: blur(5px);  
     -webkit-backdrop-filter: blur(5px);
-    animation: open-modal-popup .1s linear;
+    animation: open-modal-popup .25s linear;
 }
 
 .player-modal-box{
+    display: block;
     position: relative;
     background-color: #f0f0f0;
     margin: auto;
@@ -77,6 +83,11 @@
     font-family: 'Mukta', sans-serif;
     letter-spacing: 2px;
     color: rgb(0, 0, 150);
+}
+
+.player-name-input-field::placeholder{
+    font-size: 1rem;
+    color: rgb(90, 90, 90);
 }
 
 .player-modal-button{
@@ -146,6 +157,10 @@
 
     .player-name-input-field{
         font-size: 1.7rem;
+    }
+
+    .player-name-input-field::placeholder{
+        font-size: 3vw;
     }
 
     .player-modal-button{

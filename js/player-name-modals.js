@@ -30,6 +30,7 @@ function create_player_input_modals(){
         // Create input field
         let player1_name_input_field = document.createElement('input');
         player1_name_input_field.type = 'text';
+        player1_name_input_field.placeholder = 'Enter any username here..'
         player1_name_input_field.minLength = 5;
         player1_name_input_field.maxLength = 7;
         player1_name_input_field.spellcheck = false;
@@ -39,14 +40,14 @@ function create_player_input_modals(){
 
         // Create skip button
         let player_modal_skip_button = document.createElement('button');
-        player_modal_skip_button.textContent = 'SKIP';
+        player_modal_skip_button.textContent = 'Skip';
         player_modal_skip_button.className = 'player-modal-button player-modal-skip-button';
         player_modal_skip_button.id = 'player1-modal-skip-button';
         player1_name_input_field_div.appendChild(player_modal_skip_button);
 
         // Create next button
         let player_modal_next_button = document.createElement('button');
-        player_modal_next_button.textContent = 'NEXT';
+        player_modal_next_button.textContent = 'Next';
         player_modal_next_button.className = 'player-modal-button player-modal-next-button';
         player_modal_next_button.id = 'player1-modal-next-button';
         player1_name_input_field_div.appendChild(player_modal_next_button);
@@ -64,6 +65,8 @@ function create_player_input_modals(){
 
         // Target 'SKIP' button and perform action on click
 
+        //player_modal_skip_button.onclick = function(){
+        //}
 
         // Target 'NEXT' button and perform action on click
 
@@ -84,6 +87,8 @@ function create_player_input_modals(){
 
     create_player1_input_modal();
 }
+
+
 
 
 
