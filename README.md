@@ -8,6 +8,6 @@ I thought taking the tutorial further would do a lot of help to me and other peo
 ________________________________________________________________________________________
 
 ________________________________________________________________________________________
-09/11/2020 ( Some things are getting intersting)
+09/11/2020 ( Some things are getting interesting )
 
 It's been a long while since I edited this readme. Well, things have been happening in the background. A modal where players can input their usernames have been attached (In the manual two player mode tho, lol ). I'm looking out for more and more improvements. Remember, little drops of water make a mighty ocean !. Thanks and see you later
