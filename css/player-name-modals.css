@@ -32,18 +32,13 @@
     margin-top: 100px;
 }
   
-.modal-close-button {
-    color: #4e4e4e;
-    float: right;
-    font-size: 24px !important;
+.enter-player-name-text {
+    color: rgb(0, 0, 150);
+    font-size: 1.2rem;
     z-index: 2;
-}
-  
-.modal-close-button:hover, .modal-close-button:focus {
-    color: rgb(197, 0, 0);
-    border-radius: 50%;
-    text-decoration: none;
-    cursor: pointer;
+    font-family: 'Mukta', sans-serif;
+    float: right;
+    padding-top: 3.5px;
 }
 
 .player-modal-box-header{
@@ -56,6 +51,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     text-decoration: underline;
+    display: inline-block;
 }
 
 .player-name-input-field-div{
@@ -82,6 +78,37 @@
     letter-spacing: 2px;
     color: rgb(0, 0, 150);
 }
+
+.player-modal-button{
+    display: inline-block;
+    font-size: 1.75rem;
+    font-family: 'Play', sans-serif;
+    box-shadow: 0 0 3.5px 1.7px black;
+    border-radius: .3rem;
+    padding: .3rem;
+    width: 5.5rem;
+    margin: 1.5rem;
+}
+
+.player-modal-button:hover, .player-modal-button:focus{
+    box-shadow: 0 0 7.5px 4px black !important;
+    cursor: pointer;
+}
+
+.player-modal-skip-button{
+    background-color: rgb(220, 0, 0);
+    border: none;
+    color: whitesmoke;
+    float: left;
+}
+
+.player-modal-next-button{
+    background-color: rgb(24, 146, 0);
+    border: none;
+    color: whitesmoke;
+    float: right;
+}
+
 
 
 
@@ -113,8 +140,19 @@
         font-size: 5vw;
     }
 
+    .enter-player-name-text{
+        font-size: 4.2vw;
+    }
+
     .player-name-input-field{
         font-size: 1.7rem;
+    }
+
+    .player-modal-button{
+        font-size: 5.75vw;
+        padding: 2vw;
+        width: 20vw;
+        margin: 7.5vw;
     }
 
 }

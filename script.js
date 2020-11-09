@@ -1,7 +1,8 @@
 // IMPORTING PACKAGES
 
 import * as playerModalActions from './js/player-name-modals.js';
-playerModalActions.create_player1_modal();
+
+playerModalActions.create_player_input_modals();
 
 
 

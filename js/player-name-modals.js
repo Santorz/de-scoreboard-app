@@ -1,7 +1,11 @@
 var document_body = document.querySelector("body");
 
 
-function create_player1_modal(){
+function create_player_input_modals(){
+
+    //Function to create player one input modal, display, manipulate and remove it
+
+    
     // Create modal background
     let player1_modal = document.createElement('div');
     player1_modal.className = 'player-name-modal-background';
@@ -12,8 +16,9 @@ function create_player1_modal(){
     player1_modal_box.className = 'player-modal-box';
 
     // Create Elements inside the box
-    let close_button_player_modal = document.createElement('span');
-    close_button_player_modal.className = 'modal-close-button fa fa-close'
+    let enter_player_name_text = document.createElement('h5');
+    enter_player_name_text.className = 'enter-player-name-text';
+    enter_player_name_text.textContent = 'Enter Player Name: '
     let player_modal_header = document.createElement('h2');
     player_modal_header.className = "player-modal-box-header";
     player_modal_header.textContent = 'Player 1';
@@ -31,8 +36,22 @@ function create_player1_modal(){
     player1_name_input_field.id = 'player1-name-input-field'
     player1_name_input_field_div.appendChild(player1_name_input_field);
 
+    // Create skip button
+    let player_modal_skip_button = document.createElement('button');
+    player_modal_skip_button.textContent = 'SKIP';
+    player_modal_skip_button.className = 'player-modal-button player-modal-skip-button';
+    player_modal_skip_button.id = 'player1-modal-skip-button';
+    player1_name_input_field_div.appendChild(player_modal_skip_button);
+
+    // Create next button
+    let player_modal_next_button = document.createElement('button');
+    player_modal_next_button.textContent = 'NEXT';
+    player_modal_next_button.className = 'player-modal-button player-modal-next-button';
+    player_modal_next_button.id = 'player1-modal-next-button';
+    player1_name_input_field_div.appendChild(player_modal_next_button);
+
     // Append elements to modal box
-    player1_modal_box.appendChild(close_button_player_modal);
+    player1_modal_box.appendChild(enter_player_name_text);
     player1_modal_box.appendChild( player_modal_header);
     player1_modal_box.appendChild(player1_name_input_field_div);
 
@@ -83,5 +102,5 @@ function create_player1_modal(){
 
 // EXPORT ALL USEFUL FUNCTIONSs
 export {
-    create_player1_modal,
+    create_player_input_modals,
 };
