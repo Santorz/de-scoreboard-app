@@ -2,11 +2,6 @@
 
 import * as playerModalActions from './js/player-name-modals.js';
 
-playerModalActions.create_player_input_modals();
-
-
-
-
 
 // Selecting Elements..
 var mobile_nav_activator = document.querySelector("#mobile-nav-hamburger");
@@ -240,3 +235,27 @@ numInputArrow.onclick = function(){
 
 
 
+// RUN THINGS IMPORTED FROM OTHER FILES
+playerModalActions.create_player_input_modals();
+
+console.log(playerModalActions.number_of_players);
+console.log(playerModalActions.pName_Array);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// EXPORT ALL USEFUL THINGS
+export {
+    p1Button,
+    p2Button,
+};

@@ -6,7 +6,9 @@
 
 
 .player-name-modal-background{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     left: 0;
     top: 0;
@@ -21,7 +23,7 @@
     transition: all 0.3s linear;
     backdrop-filter: blur(5px);  
     -webkit-backdrop-filter: blur(5px);
-    animation: open-modal-popup .25s linear;
+    animation: open-modal-popup .35s forwards;
 }
 
 .player-modal-box{
@@ -32,11 +34,21 @@
     padding: 20px;
     border-radius: 7px;
     max-width: 400px;
-    min-height: 260px;
-    overflow: auto;
+    min-height: 270px;
     box-shadow: 0 0 7px 1.5px rgb(0, 0, 0);
     margin-top: 100px;
 }
+
+.player-modal-box-moved-left{
+    transform: translateX(-70vw);
+    transition: transform .3s;
+}
+
+.player-n-modal-box-sliding-in{
+    display: block;
+    transition: all .95s;
+}
+
   
 .enter-player-name-text {
     color: rgb(0, 0, 150);
@@ -61,7 +73,7 @@
 }
 
 .player-name-input-field-div{
-    height: 170px;
+    height: max-content;
     margin-top: 10px;
     position: relative;
 }
@@ -92,6 +104,7 @@
 
 .player-modal-button{
     display: inline-block;
+    position: relative;
     font-size: 1.5rem;
     font-family: 'Play', sans-serif;
     box-shadow: 0 0 2.5px 1.25px black;

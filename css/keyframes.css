@@ -17,3 +17,14 @@
     }
 };
 
+@keyframes displayed-none{
+
+    from{
+        display: block;
+    }
+
+    to{
+        display: none;
+    }
+
+};
