@@ -43,6 +43,7 @@
 
   .modal-close-button {
     color: #4e4e4e;
+    position: relative;
     float: right;
     font-size: 24px !important;
     z-index: 2;

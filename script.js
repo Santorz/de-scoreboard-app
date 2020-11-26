@@ -23,6 +23,8 @@ var p2Score = 0;
 var gameOver = false;
 var mobile_nav_clicked = false;
 var winningScore = numInput.value;
+let hasCreateInputModalRun = false;
+
 
 // ----------------------------------------
 //          ***** FUNCTIONS ******
@@ -236,10 +238,12 @@ numInputArrow.onclick = function(){
 
 
 // RUN THINGS IMPORTED FROM OTHER FILES
+
 playerModalActions.create_player_input_modals();
 
-console.log(playerModalActions.number_of_players);
 console.log(playerModalActions.pName_Array);
+
+
 
 
 

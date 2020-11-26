@@ -260,6 +260,7 @@ body {
     display: inline-block;
     text-transform: uppercase;
     font-family: 'AHG';
+    letter-spacing: 3px;
     padding: .75rem;
     font-size: 120%;
     font-weight: bolder;
